@@ -19,4 +19,5 @@ objeto.configMode();
 # Modo configuração
 - O modo configuração se trata do modo pré atuação do dispositivo, ou seja, ele será genérico para todos os dispositvos, logo consiste na seguinte sequência;
 -> Conectar à internet através do WiFiManager (em caso de primeiro acesso, o dispositivo entra em modo AP sem password e você é automaticamente redirecionado para um HTML de condiguração no ip http://192.168.4.1 onde a própria biblioteca escaneia todas as redes locais e possibilita que você adentre com a senha de acesso)
+Working in progress
 
