@@ -7,12 +7,16 @@
 class Identity{
 
 private:
-    /* data */
+void registerDisp(String id);
+    // void reconhecimento();
+    // void novoDispositivo();
+    bool isRegistered();
 public:
     Identity(String tipoDisp);
-    //void registerDisp(String id);
     void resetDisp();
     void configMode();
+
+    
 };
 
 

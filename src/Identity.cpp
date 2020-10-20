@@ -14,6 +14,25 @@ String _tipoDisp = "";
 String _idMqtt = "";
 String _macAddress = "";
 
+void reconhecimento() {
+    Serial.println ("UM CLIENTE");
+    server.send(200, "text/html", _tipoDisp);
+}
+
+void novoDispositivo() {
+  if (server.hasArg("defineID")) {
+    String id_value = server.arg("defineID");
+
+    server.send(200, "text/html", id_value);
+
+    registerDisp(id_value);
+
+    delay(500);
+
+    ESP.restart();
+  }
+}
+
 Identity::Identity(String tipoDisp){
     _tipoDisp = tipoDisp;
 }
@@ -65,25 +84,6 @@ void Identity::configMode(){
         EEPROM.get(90, _idMqtt);
         EEPROM.end();
     }
-}
-
- void reconhecimento() {
-    Serial.println ("UM CLIENTE");
-    server.send(200, "text/html", _tipoDisp);
-}
-
-void novoDispositivo() {
-  if (server.hasArg("defineID")) {
-    String id_value = server.arg("defineID");
-
-    server.send(200, "text/html", id_value);
-
-    registerDisp(id_value);
-
-    delay(500);
-
-    ESP.restart();
-  }
 }
 
 void registerDisp(String id){
