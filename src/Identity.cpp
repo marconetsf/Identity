@@ -102,6 +102,14 @@ void Identity::configMode(){
         EEPROM.begin(150);
         EEPROM.get(90, _idMqtt);
         EEPROM.end();
+    } 
+
+    String Identity::getID(){
+        return _idMqtt;
+    }
+
+    String Identity::getMAC(){
+        return _macAddress;
     }
 }
 

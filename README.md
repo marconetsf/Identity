@@ -38,3 +38,18 @@ objeto.resetDisp();
 
 - Reseta os as conexões de rede anteriores da memória.
 
+## Acesso ao Id do dispositivo
+
+```sh
+objeto.getID();
+```
+
+- Esta função retorna em string o id do dispositivo.
+
+## Acesso ao endereço MAC do dispositivo
+
+```sh
+objeto.getMAC();
+```
+
+- Esta função retorna em string o endereço MAC do dispositivo.

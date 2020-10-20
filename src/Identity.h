@@ -15,6 +15,8 @@ public:
     Identity(String tipoDisp);
     void resetDisp();
     void configMode();
+    String getID(); 
+    String getMAC();
 
     
 };
