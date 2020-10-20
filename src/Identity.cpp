@@ -6,7 +6,7 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 
-WiFiManager wifiManager; 
+WiFiManager wifiManager;
 WiFiClient espClient;
 ESP8266WebServer server(80);
 
@@ -47,6 +47,18 @@ Identity::Identity(String tipoDisp){
 void Identity::resetDisp(){
     wifiManager.resetSettings();
     ESP.reset();
+}
+
+bool Identity::isRegistered(){
+    bool status = false;
+    EEPROM.begin(150);
+    EEPROM.get(120, status);
+    EEPROM.end();
+    if (status == true && status != 255) {
+        return status;
+    } else {
+        return false;
+    }
 }
 
 void Identity::configMode(){
@@ -93,14 +105,3 @@ void Identity::configMode(){
     }
 }
 
-bool isRegistered(){
-    bool status = false;
-    EEPROM.begin(150);
-    EEPROM.get(120, status);
-    EEPROM.end();
-    if (status == true && status != 255) {
-        return status;
-    } else {
-        return false;
-    }
-}
