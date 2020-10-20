@@ -9,10 +9,10 @@ class Identity{
 private:
     /* data */
 public:
-    Identity();
-    void registerDisp(String id);
-    bool isRegistered();
+    Identity(String tipoDisp);
+    //void registerDisp(String id);
     void resetDisp();
+    void configMode();
 };
 
 
