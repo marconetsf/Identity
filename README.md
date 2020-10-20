@@ -36,7 +36,7 @@ objeto.configMode();
 objeto.resetDisp();
 ```
 
-- Reseta os as conexões de rede anteriores da memória.
+- Reseta os as conexões de rede anteriores da memória. Ele também faz a ESP8266 Reiniciar, então não é interessante mante-lo no workflow de execução onde ele é acionado de forma procedural. 
 
 ## Acesso ao Id do dispositivo
 

@@ -2,7 +2,6 @@
 #define _IDENTITY_H
 
 #include <Arduino.h>
-#include <EEPROM.h>
 
 class Identity{
 

@@ -45,6 +45,9 @@ Identity::Identity(String tipoDisp){
 }
 
 void Identity::resetDisp(){
+    EEPROM.begin(150);
+    EEPROM.put(120, false);
+    EEPROM.end();
     wifiManager.resetSettings();
     ESP.reset();
 }
@@ -92,10 +95,12 @@ void Identity::configMode(){
         server.on("/response", reconhecimento);
         server.on("/", reconhecimento);               // Retorna a info de config inicial
         server.on("/id/", HTTP_GET, novoDispositivo); // Quando o servidor recebe uma requisição com /id/ no corpo da string ele roda a função novoDispositivo
+        server.on("/defineID=", HTTP_GET, novoDispositivo);
         server.begin();
 
         while (true) {
             server.handleClient();
+            MDNS.update();
         }
 
     } else {
@@ -104,12 +109,12 @@ void Identity::configMode(){
         EEPROM.end();
     } 
 
-    String Identity::getID(){
+}
+
+String Identity::getID(){
         return _idMqtt;
     }
 
-    String Identity::getMAC(){
-        return _macAddress;
-    }
+String Identity::getMAC(){
+    return _macAddress;
 }
-
