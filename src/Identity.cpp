@@ -14,6 +14,13 @@ String _tipoDisp = "";
 String _idMqtt = "";
 String _macAddress = "";
 
+void registerDisp(String id){
+    EEPROM.begin(150);
+    EEPROM.put(90, id);
+    EEPROM.put(120, true);
+    EEPROM.end();
+}
+
 void reconhecimento() {
     Serial.println ("UM CLIENTE");
     server.send(200, "text/html", _tipoDisp);
@@ -84,13 +91,6 @@ void Identity::configMode(){
         EEPROM.get(90, _idMqtt);
         EEPROM.end();
     }
-}
-
-void registerDisp(String id){
-    EEPROM.begin(150);
-    EEPROM.put(90, id);
-    EEPROM.put(120, true);
-    EEPROM.end();
 }
 
 bool isRegistered(){
