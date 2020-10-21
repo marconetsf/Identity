@@ -67,17 +67,17 @@ bool Identity::isRegistered(){
 void Identity::configMode(){
     byte mac[6];
     WiFi.macAddress(mac); // Pegando o endMAC e transformando em string
-    String macAtual = String(mac[5], HEX);
-    //macAtual += ":";
-    macAtual += String(mac[4], HEX);
-    //macAtual += ":";
-    macAtual += String(mac[3], HEX);
-    //macAtual += ":";
-    macAtual += String(mac[2], HEX);
+    String macAtual = String(mac[0], HEX);
     //macAtual += ":";
     macAtual += String(mac[1], HEX);
     //macAtual += ":";
-    macAtual += String(mac[0], HEX);
+    macAtual += String(mac[2], HEX);
+    //macAtual += ":";
+    macAtual += String(mac[3], HEX);
+    //macAtual += ":";
+    macAtual += String(mac[4], HEX);
+    //macAtual += ":";
+    macAtual += String(mac[5], HEX);
     wifiManager.autoConnect(macAtual.c_str());
     _macAddress = macAtual;
 
@@ -95,7 +95,6 @@ void Identity::configMode(){
         server.on("/response", reconhecimento);
         server.on("/", reconhecimento);               // Retorna a info de config inicial
         server.on("/id/", HTTP_GET, novoDispositivo); // Quando o servidor recebe uma requisição com /id/ no corpo da string ele roda a função novoDispositivo
-        server.on("/defineID=", HTTP_GET, novoDispositivo);
         server.begin();
 
         while (true) {
@@ -117,4 +116,9 @@ String Identity::getID(){
 
 String Identity::getMAC(){
     return _macAddress;
+}
+
+String Identity::setTopic(String topic){
+    topic.replace("id", _idMqtt.c_str());
+    return topic;
 }

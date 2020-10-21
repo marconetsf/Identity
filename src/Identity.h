@@ -16,6 +16,7 @@ public:
     void configMode();
     String getID(); 
     String getMAC();
+    String setTopic(String topic);
 
     
 };
