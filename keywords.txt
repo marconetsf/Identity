@@ -1,6 +1,7 @@
 Identity    	KEYWORD1
 resetDisp    	KEYWORD2
 configMode  	KEYWORD2
-getID		KEYWORD2
-getMAC		KEYWORD2
+getID	    	KEYWORD2
+getMAC		    KEYWORD2
+setTopic        KEYWORD2
 

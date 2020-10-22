@@ -25,7 +25,7 @@ objeto.configMode();
 
 -> Após a conexão com a internet a ESP8266 é reinicializada em modo WebServer e um mdns de acesso que consiste no http://mac_do_dispositivo.local
 
--> Ele irá aguradar até que alguém acesse a página ttp://mac_do_dispositivo.local/id/defineID=<id de configuração> no qual o sistema de interface e gerenciamento quem irá definir esse id com base na quantidade de dispositivos já pré configurados.
+-> Ele irá aguaradar até que alguém acesse a página ttp://mac_do_dispositivo.local/id/defineID=<id de configuração> no qual o sistema de interface e gerenciamento quem irá definir esse id com base na quantidade de dispositivos já pré configurados.
 
 -> Tendo posse do id do dispositivo, ele armazena essas informações na EEPROM e reinicializa no modo de ação normal.
 
