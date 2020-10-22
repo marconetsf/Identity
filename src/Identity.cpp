@@ -3,16 +3,15 @@
 #include <EEPROM.h>
 #include <WiFiManager.h>
 #include "ESP8266mDNS.h"
-#include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 
 WiFiManager wifiManager;
-WiFiClient espClient;
 ESP8266WebServer server(80);
 
 String _tipoDisp = "";
 String _idMqtt = "";
 String _macAddress = "";
+
 
 void registerDisp(String id){
     EEPROM.begin(150);
@@ -110,15 +109,24 @@ void Identity::configMode(){
 
 }
 
-String Identity::getID(){
+String Identity::getStrID(){
         return _idMqtt;
     }
+
+char* Identity::getCharID(){
+    char cstr[55];
+    _idMqtt.toCharArray(cstr, 55);
+    return cstr;
+}
 
 String Identity::getMAC(){
     return _macAddress;
 }
 
-String Identity::setTopic(String topic){
-    topic.replace("id", _idMqtt.c_str());
-    return topic;
+char* Identity::setTopic(String topic){
+    char cstr[55];
+    topic.replace("id", _idMqtt);
+    strcpy(cstr, topic.c_str());
+    return cstr;
 }
+

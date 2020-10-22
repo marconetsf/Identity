@@ -10,16 +10,15 @@ void registerDisp(String id);
     // void reconhecimento();
     // void novoDispositivo();
     bool isRegistered();
+    void callback(char* topic, byte* payload, unsigned int length);
 public:
     Identity(String tipoDisp);
     void resetDisp();
     void configMode();
-    String getID(); 
+    String getStrID();
+    char* getCharID(); 
     String getMAC();
-    String setTopic(String topic);
-
-    
+    char* setTopic(String topic);
 };
-
 
 #endif

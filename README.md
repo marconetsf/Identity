@@ -41,10 +41,14 @@ objeto.resetDisp();
 ## Acesso ao Id do dispositivo
 
 ```sh
-objeto.getID();
+objeto.getStrID();
 ```
 
-- Esta função retorna em string o id do dispositivo.
+```sh
+objeto.getCharID();
+```
+
+- Esta função retorna em string ou em Char o id do dispositivo.
 
 ## Acesso ao endereço MAC do dispositivo
 
@@ -53,3 +57,11 @@ objeto.getMAC();
 ```
 
 - Esta função retorna em string o endereço MAC do dispositivo.
+
+## Setar Tópico
+
+```sh
+objeto.setTopic(String topic)
+```
+
+- Esta função serve para inserir o ID do dispositivo dentro do tópico armazenado em formato de string em uma variável, essa função pode ser utilizada diretamente dentro da função client.publish ou client.substcribe da biblioteca pubsupclient.h
