@@ -1,7 +1,5 @@
 # Identity
-Biblioteca com as principais funções de padronização de identidade dos dispositivos Autocom Network
-
-![logoinstaPreto](https://user-images.githubusercontent.com/37492251/96631249-72a61180-12ec-11eb-9e36-5902f3db2d9c.png)
+Biblioteca com as principais funções de padronização de identidade dos dispositivos.
 
 Para utilizar esta biblioteca é necessário instalar algumas bibliotecas em Documentos/Arduino/libraries
  * [WiFiManager] - Biblioteca responsável por um autoconnect do dispositivo
